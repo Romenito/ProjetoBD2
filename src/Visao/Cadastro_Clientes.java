@@ -23,9 +23,6 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
     private ClienteDAO clientedao= new ClienteDAO();
     private Telefone_ClienteDAO tel_dao= new Telefone_ClienteDAO(); 
     
-    
-    
-    
     public Cadastro_Clientes() {
         initComponents();
     }
@@ -85,84 +82,84 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Nome:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         jtfNomeClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfNomeClientes.setEnabled(false);
-        jPanel1.add(jtfNomeClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 90, -1));
+        jPanel1.add(jtfNomeClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, -1));
 
         jLabel3.setText("Sobrenome:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         jtfSobrenomeClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfSobrenomeClientes.setEnabled(false);
-        jPanel1.add(jtfSobrenomeClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 140, -1));
+        jPanel1.add(jtfSobrenomeClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 140, -1));
 
         jLabel4.setText("CPF:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jtfCpfClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfCpfClientes.setEnabled(false);
-        jPanel1.add(jtfCpfClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 90, -1));
+        jPanel1.add(jtfCpfClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 90, -1));
 
         jLabel5.setText("Bairro:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
 
         jtfBairroClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfBairroClientes.setEnabled(false);
-        jPanel1.add(jtfBairroClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 90, -1));
+        jPanel1.add(jtfBairroClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 90, -1));
 
         jtfRuaClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfRuaClientes.setEnabled(false);
-        jPanel1.add(jtfRuaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 90, -1));
+        jPanel1.add(jtfRuaClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 90, -1));
 
         jLabel6.setText("Rua:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         jLabel7.setText("N°:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         jtfNumeroClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfNumeroClientes.setEnabled(false);
-        jPanel1.add(jtfNumeroClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 40, -1));
+        jPanel1.add(jtfNumeroClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 40, -1));
 
         jLabel8.setText("CEP:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
         jtfCepClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfCepClientes.setEnabled(false);
-        jPanel1.add(jtfCepClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 90, -1));
+        jPanel1.add(jtfCepClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 90, -1));
 
         jLabel9.setText("Complemento:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jtfComplementoClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfComplementoClientes.setEnabled(false);
-        jPanel1.add(jtfComplementoClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 80, -1));
+        jPanel1.add(jtfComplementoClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 80, -1));
 
         jLabel10.setText("Cidade/UF:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, -1, -1));
 
         jtfCidadeClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfCidadeClientes.setEnabled(false);
-        jPanel1.add(jtfCidadeClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 190, -1));
+        jPanel1.add(jtfCidadeClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 190, -1));
 
         jLabel11.setText("Telefone:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         jtfTelefoneClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfTelefoneClientes.setEnabled(false);
-        jPanel1.add(jtfTelefoneClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 80, -1));
+        jPanel1.add(jtfTelefoneClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 80, -1));
 
         jLabel12.setText("Celular:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         jtfCelularClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfCelularClientes.setEnabled(false);
-        jPanel1.add(jtfCelularClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 80, -1));
+        jPanel1.add(jtfCelularClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 80, -1));
 
         jLabel13.setText("Email:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
         jtfEmailClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfEmailClientes.setEnabled(false);
@@ -171,7 +168,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
                 jtfEmailClientesActionPerformed(evt);
             }
         });
-        jPanel1.add(jtfEmailClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 200, -1));
+        jPanel1.add(jtfEmailClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 200, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 0));
@@ -229,7 +226,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         jtfPesquisarClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jPanel1.add(jtfPesquisarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 200, -1));
+        jPanel1.add(jtfPesquisarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 200, -1));
 
         jbPesquisarClientes.setText("Pesquisar");
         jbPesquisarClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -238,7 +235,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
                 jbPesquisarClientesActionPerformed(evt);
             }
         });
-        jPanel1.add(jbPesquisarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 90, 30));
+        jPanel1.add(jbPesquisarClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 90, 30));
 
         jtClientesCadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -255,7 +252,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtClientesCadastrados);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 600, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 630, 210));
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jCheckBox1.setText("Todos");
@@ -265,7 +262,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
 
         jbSairCliente.setText("Sair");
         jbSairCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -282,8 +279,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(32, 32, 32))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,6 +409,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         DefaultTableModel m1 = new DefaultTableModel();
         m1.setColumnIdentifiers(new String[]{"ID","CPF","Nome","Sobrenome","Endereço"});
         cliente=clientedao.PesquisarCliente(jtfPesquisarClientes.getText());
+        //Adicionar detalhes ao ENDEREÇO
         Object dados[]={cliente.getId_cliente(),cliente.getCpf(),cliente.getNome(),cliente.getSobrenome(),cliente.getRua()+" Bairro:"+cliente.getBairro()+" "+cliente.getNumero()+" "+cliente.getCidade_estado()};
         m1.addRow(dados);
         jtClientesCadastrados.setModel(m1);//Inserindo os dados em uma JTable

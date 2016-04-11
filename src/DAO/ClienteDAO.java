@@ -115,7 +115,6 @@ public class ClienteDAO {
         } catch (SQLException ex) {
         }
         
-        System.out.println("Passamos Aqui "+cliente.getNome());
         try {
            PreparedStatement  pst = conect.conn.prepareStatement("update cliente set nome= ?, sobrenome= ?, cpf= ?, rua= ?, bairro= ?,cidade_estado= ?,cep= ?,complemento= ?,email= ?,numero= ? where id_cliente= ?");
            pst.setString(1,cliente.getNome());
@@ -124,14 +123,11 @@ public class ClienteDAO {
            pst.setString(4,cliente.getRua());
            pst.setString(5,cliente.getBairro());
            pst.setString(6,cliente.getCidade_estado());
-           System.out.println("Passamos Aqui 2"+cliente.getNome());
            pst.setString(7,cliente.getCep());
            pst.setString(8,cliente.getComplemento());
            pst.setString(9,cliente.getEmail());
            pst.setString(10,cliente.getNumero());
-            System.out.println("Passamos Aqui 3"+cliente.getNome());
            pst.setInt(11,cliente.getId_cliente());
-            System.out.println("Nao Passamos Aqui "+cliente.getNome());
            pst.execute();
            conect.desconexao(); 
            JOptionPane.showMessageDialog(null,"Dados do Cliente alterado com Sucesso");
