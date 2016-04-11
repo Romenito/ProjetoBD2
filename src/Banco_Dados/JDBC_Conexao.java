@@ -20,9 +20,9 @@ public class JDBC_Conexao {
     public Statement stm;//responsavél por preparar e realizar pesquisas no banco de dados
     public  ResultSet rs;//responsavél por armazenar o resultado de uma pesquisa passada para o statement 
     private String driver="com.mysql.jdbc.Driver";//responsavél por identificar o serviço de banco de dados
-    private String caminho= "jdbc:mysql://localhost:3306/SISTEMAREVENDEDOR2";//responsavel por seta o local no banco de dados;
+    private String caminho= "jdbc:mysql://localhost:3306/sistemarevendedor2";//responsavel por seta o local no banco de dados;
     private String usuario="root";
-    private String senha="0941*DB";
+    private String senha="";
     public Connection conn;//responsavél por realizar a conexão com o banco de dados 
     
     
