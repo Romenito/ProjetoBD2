@@ -6,9 +6,9 @@
 package Visao;
 
 import DAO.ClienteDAO;
-import DAO.Telefone_ClienteDAO;
+//import DAO.Telefone_ClienteDAO;
 import Modelo.Cliente;
-import Modelo.Telefone_Cliente;
+//import Modelo.Telefone_Cliente;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,10 +19,8 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
     private Cliente cliente= new Cliente();
     private String pesquisa;
-    private Telefone_Cliente tel= new Telefone_Cliente();
     private ClienteDAO clientedao= new ClienteDAO();
-    private Telefone_ClienteDAO tel_dao= new Telefone_ClienteDAO(); 
-    
+   
     public Cadastro_Clientes() {
         initComponents();
     }
@@ -252,7 +250,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtClientesCadastrados);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 630, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 680, 210));
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jCheckBox1.setText("Todos");
@@ -279,7 +277,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,11 +323,10 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         cliente.setRua(jtfRuaClientes.getText());
         cliente.setEmail(jtfEmailClientes.getText());
         cliente.setNumero(jtfNumeroClientes.getText());
+        cliente.setTelefone(jtfTelefoneClientes.getText());
+        cliente.setCelular(jtfCelularClientes.getText());
+        //salva os dados no banco
         clientedao.EditarClientes(cliente);
-        tel.setTelefone(jtfTelefoneClientes.getText());
-        tel_dao.EditarTelefone(tel);
-        tel.setTelefone(jtfCelularClientes.getText());
-        tel_dao.EditarTelefone(tel);
         limparCampos(); 
         jbSalvarClientes.setEnabled(false);
         jbCancelarClientes.setEnabled(false);
@@ -364,11 +361,9 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         cliente.setRua(jtfRuaClientes.getText());
         cliente.setEmail(jtfEmailClientes.getText());
         cliente.setNumero(jtfNumeroClientes.getText());
-        clientedao.InserirCliente(cliente);
-        tel.setTelefone(jtfTelefoneClientes.getText());
-        tel_dao.InserirTelefone(tel);
-        tel.setTelefone(jtfCelularClientes.getText());
-        tel_dao.InserirTelefone(tel);
+        cliente.setTelefone(jtfTelefoneClientes.getText());
+        cliente.setCelular(jtfCelularClientes.getText());
+        clientedao.InserirCliente(cliente);   
         limparCampos();   
         jtfCpfClientes.setEnabled(false);
         jtfNomeClientes.setEnabled(false);
@@ -437,7 +432,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         jbEditarClientes.setEnabled(true);
         jbExcluirClientes.setEnabled(true);
         pesquisa=""+jtClientesCadastrados.getValueAt(jtClientesCadastrados.getSelectedRow(),1);
-        System.out.println("CPF "+pesquisa);
+        //System.out.println("CPF "+pesquisa);
         cliente=clientedao.PesquisarCliente(pesquisa);
         jtfCpfClientes.setText(cliente.getCpf());
         jtfNomeClientes.setText(cliente.getNome());
@@ -449,12 +444,8 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         jtfBairroClientes.setText(cliente.getBairro());
         jtfComplementoClientes.setText(cliente.getComplemento());
         jtfNumeroClientes.setText(cliente.getNumero());
-        tel=tel_dao.PesquisarTelefone(cliente.getId_cliente(),"");
-        jtfTelefoneClientes.setText(tel.getTelefone());
-        tel=tel_dao.PesquisarTelefone(cliente.getId_cliente(),tel.getTelefone());
-        jtfCelularClientes.setText(tel.getTelefone());
-        
-        
+        jtfTelefoneClientes.setText(cliente.getTelefone());
+        jtfCelularClientes.setText(cliente.getCelular());
     }//GEN-LAST:event_jtClientesCadastradosMouseClicked
 
     private void jtfEmailClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEmailClientesActionPerformed
@@ -466,7 +457,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
        jbCancelarClientes.setEnabled(false);
        jbNovoClientes.setEnabled(true);
        clientedao.ExcluirClientes(jtfCpfClientes.getText());
-       System.out.println("CPF 2 :"+jtfCpfClientes.getText());
+       //System.out.println("CPF 2 :"+jtfCpfClientes.getText());
        limparCampos();
        jtfCpfClientes.setEnabled(false);
        jtfNomeClientes.setEnabled(false);
