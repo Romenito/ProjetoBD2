@@ -10,17 +10,35 @@ package Modelo;
  * @author Romen
  */
 public class Cliente {
-    public String nome;
-    public String sobrenome;
-    public String email;
-    public String cpf;
-    public String rua;
-    public String bairro;
-    public String numero;
-    public String complemento;
-    public String cep;
-    public String cidade_estado;
-    public int id_cliente;
+    private String nome;
+    private String sobrenome;
+    private String email;
+    private String cpf;
+    private String rua;
+    private String bairro;
+    private String numero;
+    private String complemento;
+    private String cep;
+    private String cidade_estado;
+    private int id_cliente;
+    private String telefone;
+    private String celular;
+    
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
 
     public String getNome() {
         return nome;
@@ -109,8 +127,5 @@ public class Cliente {
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
-    
-    
-    
-    
+   
 }

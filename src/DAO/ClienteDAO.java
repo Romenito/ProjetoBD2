@@ -9,6 +9,8 @@ import Banco_Dados.JDBC_Conexao;
 import Modelo.Cliente;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,18 +20,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ClienteDAO {
     private JDBC_Conexao conect;
-    private Cliente client;
+    private Cliente clientPesquisa;
     
     public ClienteDAO(){
         conect= new JDBC_Conexao();
-        client= new Cliente();
+        clientPesquisa= new Cliente(); //APENAS PARA PESQUISA
     }
     
     public void InserirCliente(Cliente cliente){
          conect.conexao();
          try {
-             
-             PreparedStatement pst= conect.conn.prepareStatement("insert into cliente(nome,sobrenome,cpf,rua,bairro,cidade_estado,cep,complemento,email,numero)values(?,?,?,?,?,?,?,?,?,?)");
+             PreparedStatement pst= conect.conn.prepareStatement("insert into cliente(nome,sobrenome,cpf,rua,bairro,cidade_estado,cep,complemento,email,numero,celular,telefone)values(?,?,?,?,?,?,?,?,?,?,?,?)");
              pst.setString(1,cliente.getNome());
              pst.setString(2,cliente.getSobrenome());
              pst.setString(3,cliente.getCpf());
@@ -40,37 +41,44 @@ public class ClienteDAO {
              pst.setString(8,cliente.getComplemento());
              pst.setString(9,cliente.getEmail());
              pst.setString(10,cliente.getNumero());
+             pst.setString(11,cliente.getCelular());
+             pst.setString(12,cliente.getTelefone());
              pst.execute();
              conect.desconexao();
              JOptionPane.showMessageDialog(null,"Cadastro de Cliente Realizado com Sucesso!!");
          } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Erro ao Cadastrar Cliente"+ex);
+            System.out.println(ex.getErrorCode());
          }
         
     }
+    
     public Cliente PesquisarCliente(String pesquisar){
         conect.conexao();
         try{
             conect.executaSQL("select * from cliente where cpf like '%"+pesquisar+"%'");
             conect.rs.first();
             do{
-              client.setId_cliente(conect.rs.getInt("id_cliente"));
-              client.setNome(conect.rs.getString("nome"));
-              client.setSobrenome(conect.rs.getString("sobrenome"));
-              client.setCpf(conect.rs.getString("cpf"));
-              client.setRua(conect.rs.getString("rua"));
-              client.setNumero(conect.rs.getString("numero"));
-              client.setComplemento(conect.rs.getString("complemento"));
-              client.setBairro(conect.rs.getString("bairro"));
-              client.setCidade_estado(conect.rs.getString("cidade_estado"));
-              client.setEmail(conect.rs.getString("email"));
-              client.setCep(conect.rs.getString("cep"));
+              clientPesquisa.setId_cliente(conect.rs.getInt("id_cliente"));
+              clientPesquisa.setNome(conect.rs.getString("nome"));
+              clientPesquisa.setSobrenome(conect.rs.getString("sobrenome"));
+              clientPesquisa.setCpf(conect.rs.getString("cpf"));
+              clientPesquisa.setRua(conect.rs.getString("rua"));
+              clientPesquisa.setNumero(conect.rs.getString("numero"));
+              clientPesquisa.setComplemento(conect.rs.getString("complemento"));
+              clientPesquisa.setBairro(conect.rs.getString("bairro"));
+              clientPesquisa.setCidade_estado(conect.rs.getString("cidade_estado"));
+              clientPesquisa.setEmail(conect.rs.getString("email"));
+              clientPesquisa.setCep(conect.rs.getString("cep"));
+              clientPesquisa.setTelefone(conect.rs.getString("telefone"));
+              clientPesquisa.setCelular(conect.rs.getString("celular"));
             }while(conect.rs.next());
             conect.desconexao();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"CPF não Cadastrado");
+            System.out.println(ex.getErrorCode());
          }
-        return client;
+        return clientPesquisa;
     }
     public DefaultTableModel PesquisarTodos(){
         conect.conexao();
@@ -85,7 +93,8 @@ public class ClienteDAO {
             }while(conect.rs.next());
             conect.desconexao();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro ao Pesquisar todos");
+            JOptionPane.showMessageDialog(null,"Não há clientes cadastrados!");
+            System.out.println(ex.getErrorCode());
         }
         
          return m1; 
@@ -101,6 +110,7 @@ public class ClienteDAO {
             conect.desconexao();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Erro ao Excluir"+ex);
+            System.out.println(ex.getErrorCode());
         }
        
     }
@@ -116,7 +126,7 @@ public class ClienteDAO {
         }
         
         try {
-           PreparedStatement  pst = conect.conn.prepareStatement("update cliente set nome= ?, sobrenome= ?, cpf= ?, rua= ?, bairro= ?,cidade_estado= ?,cep= ?,complemento= ?,email= ?,numero= ? where id_cliente= ?");
+           PreparedStatement  pst = conect.conn.prepareStatement("update cliente set nome= ?, sobrenome= ?, cpf= ?, rua= ?, bairro= ?,cidade_estado= ?,cep= ?,complemento= ?,email= ?,numero= ?, celular= ?,telefone= ? where id_cliente= ?");
            pst.setString(1,cliente.getNome());
            pst.setString(2,cliente.getSobrenome());
            pst.setString(3,cliente.getCpf());
@@ -127,7 +137,9 @@ public class ClienteDAO {
            pst.setString(8,cliente.getComplemento());
            pst.setString(9,cliente.getEmail());
            pst.setString(10,cliente.getNumero());
-           pst.setInt(11,cliente.getId_cliente());
+           pst.setString(11,cliente.getCelular());
+           pst.setString(12,cliente.getTelefone());
+           pst.setInt(13,cliente.getId_cliente());
            pst.execute();
            conect.desconexao(); 
            JOptionPane.showMessageDialog(null,"Dados do Cliente alterado com Sucesso");
