@@ -15,7 +15,7 @@ public class Produto {
     public String codigo_revista;
     public String ciclo_campanha;
     public String fornecedor;
-    public int unidade_medida;
+    public String unidade_medida;
     public int id_produto;
     public double valor;
     public int quantidade_ml;
@@ -60,11 +60,11 @@ public class Produto {
         this.fornecedor = fornecedor;
     }
 
-    public int getUnidade_medida() {
+    public String getUnidade_medida() {
         return unidade_medida;
     }
 
-    public void setUnidade_medida(int unidade_medida) {
+    public void setUnidade_medida(String unidade_medida) {
         this.unidade_medida = unidade_medida;
     }
 
