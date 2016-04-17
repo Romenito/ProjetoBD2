@@ -76,7 +76,7 @@ public class ClienteDAO {
             conect.desconexao();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"CPF não Cadastrado");
-            System.out.println(ex.getErrorCode());
+            System.out.println(ex.toString());
          }
         return clientPesquisa;
     }
@@ -116,14 +116,6 @@ public class ClienteDAO {
     }
     public void EditarClientes(Cliente cliente){
         conect.conexao();
-        try {
-            //Comando SQL para capturar o ID do ultimo cliente cadastrado
-            conect.executaSQL("select id_cliente from cliente");
-            conect.rs.last();
-            cliente.setId_cliente(conect.rs.getInt("id_cliente"));
-           
-        } catch (SQLException ex) {
-        }
         
         try {
            PreparedStatement  pst = conect.conn.prepareStatement("update cliente set nome= ?, sobrenome= ?, cpf= ?, rua= ?, bairro= ?,cidade_estado= ?,cep= ?,complemento= ?,email= ?,numero= ?, celular= ?,telefone= ? where id_cliente= ?");

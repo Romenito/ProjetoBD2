@@ -98,6 +98,11 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
         jtfCpfClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfCpfClientes.setEnabled(false);
+        jtfCpfClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCpfClientesActionPerformed(evt);
+            }
+        });
         jPanel1.add(jtfCpfClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 90, -1));
 
         jLabel5.setText("Bairro:");
@@ -105,6 +110,11 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
         jtfBairroClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfBairroClientes.setEnabled(false);
+        jtfBairroClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfBairroClientesActionPerformed(evt);
+            }
+        });
         jPanel1.add(jtfBairroClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 90, -1));
 
         jtfRuaClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
@@ -250,7 +260,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtClientesCadastrados);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 680, 210));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 630, 210));
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jCheckBox1.setText("Todos");
@@ -292,7 +302,8 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
     private void jbNovoClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNovoClientesActionPerformed
        ((DefaultTableModel)jtClientesCadastrados.getModel()).setNumRows(0);
-        jtClientesCadastrados.updateUI();jtfCpfClientes.setEnabled(true);
+        jtClientesCadastrados.updateUI();
+        jtfCpfClientes.setEnabled(true);
         jtfNomeClientes.setEnabled(true);
         jtfSobrenomeClientes.setEnabled(true);
         jtfRuaClientes.setEnabled(true);
@@ -313,6 +324,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jbNovoClientesActionPerformed
 
     private void jbEditarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarClientesActionPerformed
+        cliente.setId_cliente(Integer.parseInt(String.valueOf(jtClientesCadastrados.getValueAt(jtClientesCadastrados.getSelectedRow(), 0))));
         cliente.setNome(jtfNomeClientes.getText());
         cliente.setSobrenome(jtfSobrenomeClientes.getText());
         cliente.setCpf(jtfCpfClientes.getText());
@@ -457,7 +469,6 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
        jbCancelarClientes.setEnabled(false);
        jbNovoClientes.setEnabled(true);
        clientedao.ExcluirClientes(jtfCpfClientes.getText());
-       //System.out.println("CPF 2 :"+jtfCpfClientes.getText());
        limparCampos();
        jtfCpfClientes.setEnabled(false);
        jtfNomeClientes.setEnabled(false);
@@ -479,6 +490,14 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
     private void jbSairClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairClienteActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jbSairClienteActionPerformed
+
+    private void jtfCpfClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCpfClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfCpfClientesActionPerformed
+
+    private void jtfBairroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfBairroClientesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfBairroClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -570,7 +589,6 @@ public void limparCampos(){
     jtfComplementoClientes.setText("");
     jtfNumeroClientes.setText("");
     jtfCelularClientes.setText("");
-    
 }
 
 }
