@@ -49,6 +49,7 @@ public class AdministradorDAO {
         }
         
     }
+     
      public void EditarAdministrador(Administrador administrador){
           conect.conexao();
         
@@ -87,6 +88,8 @@ public class AdministradorDAO {
         }
         return pesqadm;
     }
-   }
+
+
+}
     
 
