@@ -73,7 +73,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jbSairCliente = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Clientes");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 0, 0)));
@@ -98,11 +98,6 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
         jtfCpfClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfCpfClientes.setEnabled(false);
-        jtfCpfClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfCpfClientesActionPerformed(evt);
-            }
-        });
         jPanel1.add(jtfCpfClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 90, -1));
 
         jLabel5.setText("Bairro:");
@@ -110,11 +105,6 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
         jtfBairroClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
         jtfBairroClientes.setEnabled(false);
-        jtfBairroClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfBairroClientesActionPerformed(evt);
-            }
-        });
         jPanel1.add(jtfBairroClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 90, -1));
 
         jtfRuaClientes.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
@@ -185,6 +175,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
         jbSalvarClientes.setText("Salvar");
         jbSalvarClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbSalvarClientes.setEnabled(false);
         jbSalvarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalvarClientesActionPerformed(evt);
@@ -194,6 +185,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
 
         jbCancelarClientes.setText("Cancelar");
         jbCancelarClientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jbCancelarClientes.setEnabled(false);
         jbCancelarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbCancelarClientesActionPerformed(evt);
@@ -287,7 +279,7 @@ public class Cadastro_Clientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
