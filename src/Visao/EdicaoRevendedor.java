@@ -66,7 +66,7 @@ public class EdicaoRevendedor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jtfEmail_Revendedor = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Revendedor");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 0)));
