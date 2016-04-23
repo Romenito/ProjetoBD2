@@ -67,7 +67,8 @@ public class CadastroProduto extends javax.swing.JFrame {
         jlValor = new javax.swing.JLabel();
         jlundMed = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gerenciamento de Produtos");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlNome.setText("Nome:");
