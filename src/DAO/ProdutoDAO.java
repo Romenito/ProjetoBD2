@@ -81,7 +81,29 @@ public class ProdutoDAO {
         }
         
     }
-    
+    public Produto pesquisarProdutoID(int id){
+        conectaBD.conexao();
+        Produto produto = new Produto();
+        conectaBD.executaSQL("SELECT * FROM produto WHERE id_produto = "+id);
+        try {
+            conectaBD.rs.first();
+            produto.setNome(conectaBD.rs.getString("nome"));
+            produto.setId_produto(conectaBD.rs.getInt("id_produto"));
+            produto.setDescricao(conectaBD.rs.getString("descricao"));
+            produto.setCodigo_revista(conectaBD.rs.getString("codigo_revista"));
+            produto.setFornecedor(conectaBD.rs.getString("fornecedor"));
+            produto.setQuantidade_ml(conectaBD.rs.getInt("quantidade_ml"));
+            produto.setUnidade_medida(conectaBD.rs.getString("unid_medida"));
+            produto.setCiclo_campanha(conectaBD.rs.getString("ciclo_campanha"));
+            produto.setValor(conectaBD.rs.getDouble("valor"));
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Falha ao pesquisar Produto por ID!");
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return produto;
+    }
     public Produto pesquisarProduto(String nome){
         Produto prodPesq = new Produto();
         Boolean sucesso = false;

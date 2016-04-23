@@ -52,7 +52,33 @@ public class ClienteDAO {
          }
         
     }
-    
+    public Cliente pesquisarClienteID(int id){
+        Cliente cliente = new Cliente();
+        conect.conexao();
+        conect.executaSQL("SELECT * FROM cliente WHERE id_cliente = "+id);
+        try {
+            conect.rs.first();
+            cliente.setId_cliente(conect.rs.getInt("id_cliente"));
+            cliente.setNome(conect.rs.getString("nome"));
+            cliente.setSobrenome(conect.rs.getString("sobrenome"));
+            cliente.setCpf(conect.rs.getString("cpf"));
+            cliente.setRua(conect.rs.getString("rua"));
+            cliente.setNumero(conect.rs.getString("numero"));
+            cliente.setComplemento(conect.rs.getString("complemento"));
+            cliente.setBairro(conect.rs.getString("bairro"));
+            cliente.setCidade_estado(conect.rs.getString("cidade_estado"));
+            cliente.setEmail(conect.rs.getString("email"));
+            cliente.setCep(conect.rs.getString("cep"));
+            cliente.setTelefone(conect.rs.getString("telefone"));
+            cliente.setCelular(conect.rs.getString("celular"));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao pesquisar Cliente por ID!");
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ 
+        return cliente;
+        
+    }
     public Cliente PesquisarCliente(String pesquisar){
         conect.conexao();
         try{
