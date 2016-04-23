@@ -58,7 +58,7 @@ public class Cadastro_Revendedor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jtfEmail_Revendedor = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Revendedor");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(153, 0, 0)));
@@ -252,6 +252,7 @@ public class Cadastro_Revendedor extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbCadastrar_RevendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrar_RevendedorActionPerformed
@@ -265,6 +266,8 @@ public class Cadastro_Revendedor extends javax.swing.JFrame {
         administrador.setEmail(jtfEmail_Administrador.getText());
         administradordao.InserirAdministrador(administrador);
         limparCampos();
+        
+        
     }//GEN-LAST:event_jbCadastrar_RevendedorActionPerformed
 
     private void jbCancelar_RevendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelar_RevendedorActionPerformed
