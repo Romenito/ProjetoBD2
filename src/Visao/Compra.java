@@ -568,7 +568,7 @@ public class Compra extends javax.swing.JFrame {
             String estadoPag = String.valueOf(jcbStatusPagamento.getSelectedItem());
             listaPag.add(estadoPag);
             listaProd.add(produto);
-            total += listaProd.get(listaProd.lastIndexOf(produto)).valor;
+            total += listaProd.get(listaProd.lastIndexOf(produto)).getValor();
             Object dados[] = {produto.getId_produto(),produto.getNome(),produto.getValor(),produto.getDescricao(),estadoPag}; 
             ((DefaultTableModel)jtProdutosComprados.getModel()).addRow(dados);
             jlValorTotalComprado.setText("R$ "+Double.toString(total));
