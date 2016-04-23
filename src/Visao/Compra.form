@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -61,34 +61,29 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="480" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jlPesquisaCliente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jtfBarraPesquisaCliente" min="-2" pref="190" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jbPesqCliente" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jcbTodosClientes" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="480" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="jlPesquisaProduto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jtfBarraPesquisaProduto" min="-2" pref="190" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jbPesqProduto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jbPesqProduto" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jcbTodosProdutos" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jlQuantidade" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jsQuantidadeProduto" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" alignment="1" min="-2" pref="514" max="-2" attributes="0"/>
                   </Group>
@@ -125,33 +120,24 @@
                           <Component id="jlValorCPF" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jbAdicionaProduto" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jlStatusPago" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jcbStatusPagamento" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jlStatusPago" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jcbStatusPagamento" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="jbAdicionaProduto" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jlTotal" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jlValorTotalComprado" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jbRemoveProduto" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jScrollPane3" max="32767" attributes="0"/>
-                          </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jlTotal" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jlValorTotalComprado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="jbRemoveProduto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -186,10 +172,9 @@
                           <Component id="jlTituloCompra" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jlPesquisaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jtfBarraPesquisaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jbPesqCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jcbTodosClientes" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlPesquisaCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -199,29 +184,29 @@
                               <Component id="jlTituloProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jlPesquisaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtfBarraPesquisaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jbPesqProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jcbTodosProdutos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jcbTodosClientes" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlPesquisaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jtfBarraPesquisaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jbPesqProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jcbTodosProdutos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="168" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="168" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jsQuantidadeProduto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="jlQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jlStatusPago" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbStatusPagamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane2" pref="168" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jbAdicionaProduto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jlStatusPago" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbStatusPagamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbAdicionaProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="53" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jlProdutosComprados" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlDadosComprador" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -247,19 +232,20 @@
                               <Component id="jlStatusEntrega" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jcbStatusEntrega" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jlTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jlValorTotalComprado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jScrollPane3" min="-2" pref="106" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jbRemoveProduto" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jbRemoveProduto" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jlTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jlValorTotalComprado" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jldataCompra" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jlDataAtual" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -284,7 +270,8 @@
             <Component class="javax.swing.JTable" name="jtProdutos">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="6" rowCount="0">
+                    <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="Nome" type="java.lang.String"/>
                     <Column editable="true" title="Cod Revista" type="java.lang.String"/>
                     <Column editable="true" title="Ciclo" type="java.lang.String"/>
@@ -293,6 +280,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtProdutosMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -306,7 +296,8 @@
             <Component class="javax.swing.JTable" name="jtClientes">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="0">
+                  <Table columnCount="6" rowCount="0">
+                    <Column editable="true" title="ID" type="java.lang.Integer"/>
                     <Column editable="true" title="Nome" type="java.lang.String"/>
                     <Column editable="true" title="Sobrenome" type="java.lang.String"/>
                     <Column editable="true" title="CPF" type="java.lang.String"/>
@@ -315,6 +306,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtClientesMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -347,21 +341,33 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbPesqClienteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jcbTodosClientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Todos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbTodosClientesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jcbTodosProdutos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Todos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbTodosProdutosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbPesqProduto">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbPesqProdutoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jtfBarraPesquisaProduto">
           <Events>
@@ -381,7 +387,11 @@
         <Component class="javax.swing.JLabel" name="jlValorNomeSobrenome">
           <Properties>
             <Property name="text" type="java.lang.String" value="nomeESobrenome"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jlValorNomeSobrenome.setVisible(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jlcpfCliente">
           <Properties>
@@ -391,7 +401,11 @@
         <Component class="javax.swing.JLabel" name="jlValorCPF">
           <Properties>
             <Property name="text" type="java.lang.String" value="cpfCliente"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jlValorCPF.setVisible(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jlEndereco">
           <Properties>
@@ -401,16 +415,24 @@
         <Component class="javax.swing.JLabel" name="jlEnderecoCompleto">
           <Properties>
             <Property name="text" type="java.lang.String" value="enderecoCliente"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlTelefoneCelular">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Fones:"/>
-          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jlEnderecoCompleto.setVisible(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jlValorFones">
           <Properties>
             <Property name="text" type="java.lang.String" value="telefoneECelular"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jlValorFones.setVisible(false);"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jlTelefoneCelular">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fones:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jlProdutosComprados">
@@ -422,6 +444,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar Produto"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbAdicionaProdutoActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">
           <AuxValues>
@@ -433,10 +458,12 @@
             <Component class="javax.swing.JTable" name="jtProdutosComprados">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="3" rowCount="0">
-                    <Column editable="true" title="Nome" type="java.lang.Object"/>
-                    <Column editable="true" title="Valor" type="java.lang.Object"/>
-                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.Object"/>
+                  <Table columnCount="5" rowCount="0">
+                    <Column editable="true" title="ID" type="java.lang.Integer"/>
+                    <Column editable="true" title="Nome" type="java.lang.String"/>
+                    <Column editable="true" title="Valor" type="java.lang.Double"/>
+                    <Column editable="true" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
+                    <Column editable="true" title="Pagamento" type="java.lang.String"/>
                   </Table>
                 </Property>
               </Properties>
@@ -448,10 +475,11 @@
             <Property name="text" type="java.lang.String" value="Dados do Comprador"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jsQuantidadeProduto">
-        </Component>
         <Component class="javax.swing.JLabel" name="jlTotal">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Valor Total:"/>
           </Properties>
         </Component>
@@ -459,33 +487,36 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Remover da Compra"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlQuantidade">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Quandidade:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jlValorTotalComprado">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ValorTotal"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbRemoveProdutoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jlStatusPago">
           <Properties>
             <Property name="text" type="java.lang.String" value="Estado de Pagamento:"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jlValorTotalComprado">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="R$ 0.0"/>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JComboBox" name="jcbStatusPagamento">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="2">
+                <StringItem index="0" value="Pago"/>
+                <StringItem index="1" value="Pendente"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbStatusPagamentoActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -502,6 +533,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbCancelaCompraActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jldataCompra">
           <Properties>
@@ -511,7 +545,11 @@
         <Component class="javax.swing.JLabel" name="jlDataAtual">
           <Properties>
             <Property name="text" type="java.lang.String" value="dataAtual"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jlDataAtual.setVisible(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jlStatusEntrega">
           <Properties>
@@ -521,15 +559,15 @@
         <Component class="javax.swing.JComboBox" name="jcbStatusEntrega">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="2">
+                <StringItem index="0" value="Entregue"/>
+                <StringItem index="1" value="Pendente"/>
               </StringArray>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jcbStatusEntrega.setVisible(false);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
