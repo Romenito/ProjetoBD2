@@ -5,17 +5,21 @@
  */
 package Modelo;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Romen
  */
 public class Compra {
-    public int codigo_compra;
-    public String status_compra;
-    public String entrega_cliente;
-    public int id_produto;
-    public int id_revendedor;
-    public int id_cliente;
+    private int codigo_compra;
+    private String status_compra;
+    private String entrega_cliente;
+    private Timestamp data_compra;
+    private Timestamp data_entrega;
+    private int id_produto;
+    private int id_revendedor;
+    private int id_cliente;
 
     public int getCodigo_compra() {
         return codigo_compra;

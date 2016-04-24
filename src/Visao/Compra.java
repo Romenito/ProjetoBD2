@@ -6,9 +6,11 @@
 package Visao;
 
 import DAO.ClienteDAO;
+import DAO.CompraDAO;
 import DAO.ProdutoDAO;
 import Modelo.Cliente;
 import Modelo.Produto;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,10 +32,11 @@ public class Compra extends javax.swing.JFrame {
     private Produto produto;
     private List<Produto> listaProd = new ArrayList<Produto>();
     private List<String> listaPag = new ArrayList<String>();
-    double total = 0;
+    private List<String> listaEnt = new ArrayList<String>();
+    private double total = 0;
     //format para timestamp do mysql ou usar java.sql
-    DateFormat df = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
-    Date dataAtual;
+    private DateFormat df = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
+    private Timestamp dataAtual;
     
     public Compra() {
         cliente = null;
@@ -82,8 +85,8 @@ public class Compra extends javax.swing.JFrame {
         jlTotal = new javax.swing.JLabel();
         jbRemoveProduto = new javax.swing.JButton();
         jlStatusPago = new javax.swing.JLabel();
-        jlValorTotalComprado = new javax.swing.JLabel();
         jcbStatusPagamento = new javax.swing.JComboBox<>();
+        jlValorTotalComprado = new javax.swing.JLabel();
         jbFinalizaCompra = new javax.swing.JButton();
         jbCancelaCompra = new javax.swing.JButton();
         jldataCompra = new javax.swing.JLabel();
@@ -227,11 +230,11 @@ public class Compra extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "Valor", "Descrição", "Pagamento"
+                "ID", "Nome", "Valor", "Descrição", "Pagamento", "Entrega"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -254,16 +257,16 @@ public class Compra extends javax.swing.JFrame {
 
         jlStatusPago.setText("Estado de Pagamento:");
 
-        jlValorTotalComprado.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jlValorTotalComprado.setText("R$ 0.0");
-        jlValorTotalComprado.setName(""); // NOI18N
-
         jcbStatusPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pago", "Pendente" }));
         jcbStatusPagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbStatusPagamentoActionPerformed(evt);
             }
         });
+
+        jlValorTotalComprado.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jlValorTotalComprado.setText("R$ 0.0");
+        jlValorTotalComprado.setName(""); // NOI18N
 
         jbFinalizaCompra.setText("Finalizar Compra");
         jbFinalizaCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -281,6 +284,7 @@ public class Compra extends javax.swing.JFrame {
 
         jldataCompra.setText("Data da Compra:");
 
+        jlDataAtual.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jlDataAtual.setText("dataAtual");
         jlDataAtual.setToolTipText("");
         jlDataAtual.setVisible(false);
@@ -343,39 +347,22 @@ public class Compra extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlEndereco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlEnderecoCompleto)))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlStatusEntrega)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jcbStatusEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jlEnderecoCompleto))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlcpfCliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jlValorCPF)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlStatusPago)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jcbStatusPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jbAdicionaProduto))
+                    .addComponent(jbAdicionaProduto, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jlTotal)
                         .addGap(18, 18, 18)
                         .addComponent(jlValorTotalComprado)
-                        .addGap(170, 170, 170)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbRemoveProduto)
                         .addContainerGap())
-                    .addComponent(jScrollPane3)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbFinalizaCompra)
-                .addGap(112, 112, 112)
-                .addComponent(jbCancelaCompra)
-                .addContainerGap())
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
                 .addComponent(jlDadosComprador)
@@ -388,6 +375,24 @@ public class Compra extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jlDataAtual)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jlStatusPago)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jcbStatusPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jbFinalizaCompra)
+                            .addGap(112, 112, 112)
+                            .addComponent(jbCancelaCompra)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jlStatusEntrega)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jcbStatusEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(355, 355, 355)))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,41 +428,48 @@ public class Compra extends javax.swing.JFrame {
                     .addComponent(jlStatusPago)
                     .addComponent(jcbStatusPagamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbAdicionaProduto))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlStatusEntrega)
+                    .addComponent(jcbStatusEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlProdutosComprados)
                     .addComponent(jlDadosComprador))
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlnomeSobrenome)
-                            .addComponent(jlValorNomeSobrenome)
+                            .addComponent(jlValorNomeSobrenome))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlcpfCliente)
                             .addComponent(jlValorCPF))
-                        .addGap(38, 38, 38)
+                        .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jlEndereco)
-                            .addComponent(jlEnderecoCompleto))
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlTelefoneCelular)
-                            .addComponent(jlValorFones)
-                            .addComponent(jlStatusEntrega)
-                            .addComponent(jcbStatusEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jlEnderecoCompleto)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbRemoveProduto)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jlTotal)
-                                .addComponent(jlValorTotalComprado)))))
-                .addGap(15, 15, 15)
+                                .addComponent(jlValorTotalComprado)))
+                        .addGap(33, 33, 33))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlTelefoneCelular)
+                            .addComponent(jlValorFones))
+                        .addGap(27, 27, 27)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jldataCompra)
                     .addComponent(jlDataAtual))
-                .addGap(19, 19, 19)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbFinalizaCompra)
                     .addComponent(jbCancelaCompra)))
@@ -493,7 +505,15 @@ public class Compra extends javax.swing.JFrame {
 
     private void jbFinalizaCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbFinalizaCompraActionPerformed
         if(cliente!=null){
-            //salva no banco
+            List<Integer> ids = new ArrayList<>();
+            //pega todos os ids
+            for(int i=0;i<jtProdutosComprados.getModel().getRowCount();i++){
+                ids.add((Integer)jtProdutosComprados.getModel().getValueAt(i, 0));
+            }
+            int idCliente = (int)jtClientes.getModel().getValueAt(jtClientes.getSelectedRow(), 0);
+            new CompraDAO().finalizarCompra(ids,idCliente,listaPag,listaEnt,dataAtual);
+            //new CompraDAO().finalizarCompra((int)jtClientes.getModel().getValueAt(jtClientes.getSelectedRow(), 0),jtProdutosComprados);
+            //JOptionPane.showMessageDialog(null, ids+" "+ (int)jtClientes.getModel().getValueAt(jtClientes.getSelectedRow(), 0));
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um cliente para finalizar a compra!");
         }
@@ -544,7 +564,7 @@ public class Compra extends javax.swing.JFrame {
             jlValorFones.setText("Tel: "+cliente.getTelefone()+", Cel: "+cliente.getCelular());
             //Setar em compra
             //java.sql.Timestamp ts = new java.sql.Timestamp(timeNow);
-            dataAtual = new Date();
+            dataAtual = new Timestamp(System.currentTimeMillis());
             jlDataAtual.setText(df.format(dataAtual));
         }
         else {
@@ -566,12 +586,14 @@ public class Compra extends javax.swing.JFrame {
         //Produto prod = new ProdutoDAO().pesquisarProdutoID(posicao);
         if(produto!=null){
             String estadoPag = String.valueOf(jcbStatusPagamento.getSelectedItem());
+            String estadoEnt = String.valueOf(jcbStatusEntrega.getSelectedItem());
             listaPag.add(estadoPag);
             listaProd.add(produto);
+            listaEnt.add(estadoEnt);
             total += listaProd.get(listaProd.lastIndexOf(produto)).getValor();
-            Object dados[] = {produto.getId_produto(),produto.getNome(),produto.getValor(),produto.getDescricao(),estadoPag}; 
+            Object dados[] = {produto.getId_produto(),produto.getNome(),produto.getValor(),produto.getDescricao(),estadoPag,estadoEnt}; 
             ((DefaultTableModel)jtProdutosComprados.getModel()).addRow(dados);
-            jlValorTotalComprado.setText("R$ "+Double.toString(total));
+                jlValorTotalComprado.setText("R$ "+String.format("%.2f",total));
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um produto antes de adicioná-lo!");
         }
@@ -582,10 +604,11 @@ public class Compra extends javax.swing.JFrame {
         if(posicaoTab>=0){
             //atualiza valor
             total-=listaProd.get(posicaoTab).getValor();
-            jlValorTotalComprado.setText("R$ "+Double.toString(total));
+            jlValorTotalComprado.setText("R$ "+String.format("%.2f",(total)));
 
             listaPag.remove(posicaoTab);
             listaProd.remove(posicaoTab);
+            listaEnt.remove(posicaoTab);
             ((DefaultTableModel)jtProdutosComprados.getModel()).removeRow(posicaoTab);
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um produto da tabela antes de remover!");
