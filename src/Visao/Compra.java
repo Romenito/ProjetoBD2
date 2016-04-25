@@ -322,7 +322,7 @@ public class Compra extends javax.swing.JFrame {
                         .addComponent(jbPesqCliente)
                         .addGap(18, 18, 18)
                         .addComponent(jcbTodosClientes)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jlPesquisaProduto)
@@ -385,7 +385,7 @@ public class Compra extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jbFinalizaCompra)
-                            .addGap(112, 112, 112)
+                            .addGap(130, 130, 130)
                             .addComponent(jbCancelaCompra)
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -453,26 +453,30 @@ public class Compra extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jbRemoveProduto)
+                                    .addComponent(jlTotal)
+                                    .addComponent(jlValorTotalComprado))
+                                .addGap(33, 33, 33))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlTelefoneCelular)
+                                    .addComponent(jlValorFones))
+                                .addGap(27, 27, 27)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbRemoveProduto)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jlTotal)
-                                .addComponent(jlValorTotalComprado)))
-                        .addGap(33, 33, 33))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jldataCompra)
+                            .addComponent(jlDataAtual))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jlTelefoneCelular)
-                            .addComponent(jlValorFones))
-                        .addGap(27, 27, 27)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jldataCompra)
-                    .addComponent(jlDataAtual))
-                .addGap(1, 1, 1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbFinalizaCompra)
-                    .addComponent(jbCancelaCompra)))
+                            .addComponent(jbFinalizaCompra)
+                            .addComponent(jbCancelaCompra))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -521,13 +525,7 @@ public class Compra extends javax.swing.JFrame {
 
     private void jbPesqClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesqClienteActionPerformed
         ClienteDAO pesqCli = new ClienteDAO();
-        cliente = pesqCli.PesquisarCliente(jtfBarraPesquisaCliente.getText());
-        String endereco = cliente.getRua()+",nº "+cliente.getNumero()+", "+cliente.getBairro();
-        String fones = cliente.getTelefone()+", "+cliente.getCelular();
-        Object dados[] = {cliente.getId_cliente(),cliente.getNome(),cliente.getSobrenome(),cliente.getCpf(),endereco,fones};
-        DefaultTableModel tabela = new DefaultTableModel();
-        tabela.setColumnIdentifiers(new String[]{"ID,Nome","Sobrenome","CPF","Endereço","Fones"});
-        tabela.addRow(dados);
+        DefaultTableModel tabela = pesqCli.PesquisarClienteNome(jtfBarraPesquisaCliente.getText());
         jtClientes.setModel(tabela);
     }//GEN-LAST:event_jbPesqClienteActionPerformed
 
@@ -562,8 +560,6 @@ public class Compra extends javax.swing.JFrame {
             jlValorCPF.setText(cliente.getCpf());
             jlEnderecoCompleto.setText("Rua: "+cliente.getRua()+", nº: "+cliente.getNumero()+", Bairro: "+cliente.getBairro());
             jlValorFones.setText("Tel: "+cliente.getTelefone()+", Cel: "+cliente.getCelular());
-            //Setar em compra
-            //java.sql.Timestamp ts = new java.sql.Timestamp(timeNow);
             dataAtual = new Timestamp(System.currentTimeMillis());
             jlDataAtual.setText(df.format(dataAtual));
         }
@@ -591,7 +587,7 @@ public class Compra extends javax.swing.JFrame {
             listaProd.add(produto);
             listaEnt.add(estadoEnt);
             total += listaProd.get(listaProd.lastIndexOf(produto)).getValor();
-            Object dados[] = {produto.getId_produto(),produto.getNome(),produto.getValor(),produto.getDescricao(),estadoPag,estadoEnt}; 
+            Object dados[] = {produto.getId_produto(),produto.getNome_produto(),produto.getValor(),produto.getDescricao(),estadoPag,estadoEnt}; 
             ((DefaultTableModel)jtProdutosComprados.getModel()).addRow(dados);
                 jlValorTotalComprado.setText("R$ "+String.format("%.2f",total));
         } else {
@@ -605,7 +601,6 @@ public class Compra extends javax.swing.JFrame {
             //atualiza valor
             total-=listaProd.get(posicaoTab).getValor();
             jlValorTotalComprado.setText("R$ "+String.format("%.2f",(total)));
-
             listaPag.remove(posicaoTab);
             listaProd.remove(posicaoTab);
             listaEnt.remove(posicaoTab);
@@ -623,7 +618,7 @@ public class Compra extends javax.swing.JFrame {
         ProdutoDAO pesqProd = new ProdutoDAO();
         produto = pesqProd.pesquisarProduto(jtfBarraPesquisaProduto.getText());
         DefaultTableModel tabela = new DefaultTableModel();
-        Object dados[] = {produto.getId_produto(),produto.getNome(),produto.getCodigo_revista(),produto.getCiclo_campanha(),produto.getDescricao(),produto.getValor()};
+        Object dados[] = {produto.getId_produto(),produto.getNome_produto(),produto.getCodigo_revista(),produto.getCiclo_campanha(),produto.getDescricao(),produto.getValor()};
         tabela.setColumnIdentifiers(new String[]{"ID","Nome","Cod Revista","Ciclo","Descrição","Valor"});
         tabela.addRow(dados);
         jtProdutos.setModel(tabela);

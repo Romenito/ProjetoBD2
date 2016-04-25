@@ -106,6 +106,28 @@ public class ClienteDAO {
          }
         return clientPesquisa;
     }
+    
+    public DefaultTableModel PesquisarClienteNome(String nomeCli){
+        DefaultTableModel tab = new DefaultTableModel();
+        tab.setColumnIdentifiers(new String[]{"ID,Nome","Sobrenome","CPF","Endereço","Fones"});
+        conect.conexao();
+        conect.executaSQL("select * from cliente where nome like '%"+nomeCli+"%'");
+        try {
+            conect.rs.first();            
+             do{
+                Object dados[] = {conect.rs.getInt("id_cliente"),conect.rs.getString("nome")+" "+conect.rs.getString("sobrenome"),conect.rs.getString("cpf"),
+                     conect.rs.getString("rua")+", "+conect.rs.getString("numero")+", "+conect.rs.getString("bairro"),
+              conect.rs.getString("telefone")+", "+conect.rs.getString("celular")
+              };
+              tab.addRow(dados);
+            }while(conect.rs.next());
+            conect.desconexao();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return tab;
+    }
     public DefaultTableModel PesquisarTodos(){
         conect.conexao();
         DefaultTableModel m1 = new DefaultTableModel();

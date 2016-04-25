@@ -42,7 +42,7 @@ public class CompraDAO {
                 consultaBD.execute();
             }
             conectaBD.desconexao();
-            JOptionPane.showMessageDialog(null, "Compra realizada com sucesso!");
+            JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(CompraDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
