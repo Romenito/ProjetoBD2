@@ -39,7 +39,7 @@ public class RevendedorDAO {
              conect.desconexao();
              JOptionPane.showMessageDialog(null,"Revendedor cadastrado com Sucesso ");
         } catch (SQLException ex) {
-            Logger.getLogger(RevendedorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Não é ṕossível cadastrar Revendedor.");
         }
         
     }
@@ -63,7 +63,7 @@ public class RevendedorDAO {
             conect.desconexao();
             JOptionPane.showMessageDialog(null,"Dados Editado com sucesso");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro ao Editar Cadastro"+ex);
+            JOptionPane.showMessageDialog(null,"Erro ao Editar Cadastro");
         }
     }
     public Revendedor PesquisarRevendedor(){

@@ -9,13 +9,9 @@ import Banco_Dados.JDBC_Conexao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
+
 /**
  *
  * @author Romen
@@ -44,7 +40,7 @@ public class CompraDAO {
             conectaBD.desconexao();
             JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso!");
         } catch (SQLException ex) {
-            Logger.getLogger(CompraDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao finalizar compra.");
         }
     }
 }

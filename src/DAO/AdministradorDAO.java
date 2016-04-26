@@ -34,7 +34,7 @@ public class AdministradorDAO {
             conect.rs.last();
             administrador.setId_revendedor(conect.rs.getInt("id_revendedor"));
         } catch (SQLException ex) {
-            Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao vincular Administrador com Revendedor.");
         }
         try {
             PreparedStatement pst= conect.conn.prepareStatement(" insert into administra(nome,telefone,email,id_revendedor) values(?,?,?,?)");
@@ -70,9 +70,10 @@ public class AdministradorDAO {
             pst.execute();
             conect.desconexao();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro ao Editar Dados de Administrador"+ex);
+            JOptionPane.showMessageDialog(null,"Erro ao Editar Dados de Administrador");
         }
       }
+     
      public Administrador PesquisarAdministrador(){
         conect.conexao();
        
@@ -84,7 +85,7 @@ public class AdministradorDAO {
             pesqadm.setTelefone(conect.rs.getString("telefone"));
             conect.desconexao();
         } catch (SQLException ex) {
-          
+            JOptionPane.showMessageDialog(null,"Aviso! Não há administrador cadastrado.");
         }
         return pesqadm;
     }

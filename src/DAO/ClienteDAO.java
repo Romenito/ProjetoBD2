@@ -9,8 +9,6 @@ import Banco_Dados.JDBC_Conexao;
 import Modelo.Cliente;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -47,8 +45,7 @@ public class ClienteDAO {
              conect.desconexao();
              JOptionPane.showMessageDialog(null,"Cadastro de Cliente Realizado com Sucesso!!");
          } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro ao Cadastrar Cliente"+ex);
-            System.out.println(ex.getErrorCode());
+            JOptionPane.showMessageDialog(null,"Erro ao Cadastrar Cliente.");
          }
         
     }
@@ -73,7 +70,6 @@ public class ClienteDAO {
             cliente.setCelular(conect.rs.getString("celular"));
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao pesquisar Cliente por ID!");
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
  
         return cliente;
@@ -102,7 +98,6 @@ public class ClienteDAO {
             conect.desconexao();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"CPF não Cadastrado");
-            System.out.println(ex.toString());
          }
         return clientPesquisa;
     }
@@ -123,7 +118,7 @@ public class ClienteDAO {
             }while(conect.rs.next());
             conect.desconexao();
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Erro ao pesquisar clientes!");
         }
 
         return tab;
@@ -142,7 +137,6 @@ public class ClienteDAO {
             conect.desconexao();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Não há clientes cadastrados!");
-            System.out.println(ex.getErrorCode());
         }
         
          return m1; 
@@ -157,8 +151,7 @@ public class ClienteDAO {
             JOptionPane.showMessageDialog(null,"Cliente excluído com Sucesso");
             conect.desconexao();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro ao Excluir"+ex);
-            System.out.println(ex.getErrorCode());
+            JOptionPane.showMessageDialog(null,"Erro ao Excluir!\nCliente vinculado em Venda.");
         }
        
     }
@@ -185,7 +178,7 @@ public class ClienteDAO {
            JOptionPane.showMessageDialog(null,"Dados do Cliente alterado com Sucesso");
         
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null," Erro ao alterar cliente"+ex);
+           JOptionPane.showMessageDialog(null," Erro ao alterar cliente.");
         }
     }
 }
