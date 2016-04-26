@@ -10,22 +10,22 @@ package Modelo;
  * @author Romen
  */
 public class Produto {
-    public String nome;
-    public String descricao;
-    public String codigo_revista;
-    public String ciclo_campanha;
-    public String fornecedor;
-    public String unidade_medida;
-    public int id_produto;
-    public double valor;
-    public int quantidade_ml;
+    private String nome_produto;
+    private String descricao;
+    private String codigo_revista;
+    private String ciclo_campanha;
+    private String fornecedor;
+    private String unidade_medida;
+    private int id_produto;
+    private double valor;
+    private int quantidade_ml;
 
-    public String getNome() {
-        return nome;
+    public String getNome_produto() {
+        return nome_produto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome_produto(String nome_produto) {
+        this.nome_produto = nome_produto;
     }
 
     public String getDescricao() {

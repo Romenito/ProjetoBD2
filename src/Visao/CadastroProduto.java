@@ -38,13 +38,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         jSlider1 = new javax.swing.JSlider();
         jlNome = new javax.swing.JLabel();
         jlGram = new javax.swing.JLabel();
-        jtfNome = new javax.swing.JTextField();
-        jtfCodRevista = new javax.swing.JTextField();
-        jtfCiclo = new javax.swing.JTextField();
-        jtfDesc = new javax.swing.JTextField();
-        jtfGram = new javax.swing.JTextField();
-        jtfValor = new javax.swing.JTextField();
-        jcbUndMed = new javax.swing.JComboBox<String>();
         jspExibeDados = new javax.swing.JScrollPane();
         jtProdutosCadastrados = new javax.swing.JTable();
         jcbTodosProdutos = new javax.swing.JCheckBox();
@@ -66,6 +59,13 @@ public class CadastroProduto extends javax.swing.JFrame {
         jlCiclo = new javax.swing.JLabel();
         jlValor = new javax.swing.JLabel();
         jlundMed = new javax.swing.JLabel();
+        jtfNome = new javax.swing.JTextField();
+        jtfCodRevista = new javax.swing.JTextField();
+        jtfCiclo = new javax.swing.JTextField();
+        jtfValor = new javax.swing.JTextField();
+        jcbUndMed = new javax.swing.JComboBox<>();
+        jtfGram = new javax.swing.JTextField();
+        jtfDesc = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciamento de Produtos");
@@ -76,68 +76,6 @@ public class CadastroProduto extends javax.swing.JFrame {
 
         jlGram.setText("Gramatura:");
         getContentPane().add(jlGram, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 193, -1, -1));
-
-        jtfNome.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jtfNome.setEnabled(false);
-        jtfNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfNomeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtfNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 91, 98, -1));
-
-        jtfCodRevista.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jtfCodRevista.setEnabled(false);
-        jtfCodRevista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfCodRevistaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtfCodRevista, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 91, 66, -1));
-
-        jtfCiclo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jtfCiclo.setEnabled(false);
-        jtfCiclo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfCicloActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtfCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(422, 91, 67, -1));
-
-        jtfDesc.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jtfDesc.setEnabled(false);
-        jtfDesc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfDescActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtfDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 144, 119, -1));
-
-        jtfGram.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jtfGram.setEnabled(false);
-        jtfGram.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfGramActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtfGram, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 190, 55, -1));
-
-        jtfValor.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
-        jtfValor.setEnabled(false);
-        jtfValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfValorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jtfValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 190, 70, -1));
-
-        jcbUndMed.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mililitros", "Gramas" }));
-        jcbUndMed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbUndMedActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jcbUndMed, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 190, -1, -1));
 
         jtProdutosCadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -269,6 +207,61 @@ public class CadastroProduto extends javax.swing.JFrame {
 
         jlundMed.setText("Unid. de Medida:");
 
+        jtfNome.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jtfNome.setEnabled(false);
+        jtfNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfNomeActionPerformed(evt);
+            }
+        });
+
+        jtfCodRevista.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jtfCodRevista.setEnabled(false);
+        jtfCodRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCodRevistaActionPerformed(evt);
+            }
+        });
+
+        jtfCiclo.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jtfCiclo.setEnabled(false);
+        jtfCiclo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCicloActionPerformed(evt);
+            }
+        });
+
+        jtfValor.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jtfValor.setEnabled(false);
+        jtfValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfValorActionPerformed(evt);
+            }
+        });
+
+        jcbUndMed.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mililitros", "Gramas" }));
+        jcbUndMed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbUndMedActionPerformed(evt);
+            }
+        });
+
+        jtfGram.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jtfGram.setEnabled(false);
+        jtfGram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfGramActionPerformed(evt);
+            }
+        });
+
+        jtfDesc.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
+        jtfDesc.setEnabled(false);
+        jtfDesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfDescActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -278,7 +271,7 @@ public class CadastroProduto extends javax.swing.JFrame {
                 .addComponent(jlTituloPesquisarProd)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfBarraPesquisarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(204, 204, 204))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -302,16 +295,34 @@ public class CadastroProduto extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jtfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jlDesc))
+                        .addComponent(jlDesc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtfDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
+                        .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlcodRevista)
-                            .addComponent(jlundMed))
-                        .addGap(125, 125, 125)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jtfGram, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jlundMed))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jlcodRevista)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jlValor)
-                            .addComponent(jlCiclo)))
+                            .addComponent(jtfCodRevista, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbUndMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jlValor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtfValor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jlCiclo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtfCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jlTitulo)))
@@ -322,20 +333,27 @@ public class CadastroProduto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jlTitulo)
-                .addGap(34, 34, 34)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlcodRevista)
-                    .addComponent(jlCiclo))
-                .addGap(36, 36, 36)
+                    .addComponent(jlCiclo)
+                    .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfCodRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlDesc)
                     .addComponent(jlFornecedor)
-                    .addComponent(jtfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(jtfFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlValor)
-                    .addComponent(jlundMed))
-                .addGap(26, 26, 26)
+                    .addComponent(jlundMed)
+                    .addComponent(jtfValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbUndMed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfGram, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNovoProd, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -387,7 +405,7 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void jbSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarActionPerformed
         Produto produto = new Produto();
-        produto.setNome(jtfNome.getText());
+        produto.setNome_produto(jtfNome.getText());
         produto.setCodigo_revista(jtfCodRevista.getText());
         produto.setCiclo_campanha(jtfCiclo.getText());
         produto.setFornecedor(jtfFornecedor.getText());
@@ -417,7 +435,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
         Produto produto = new Produto();
         produto.setId_produto(Integer.parseInt(String.valueOf(jtProdutosCadastrados.getValueAt(jtProdutosCadastrados.getSelectedRow(), 0))));
-        produto.setNome(jtfNome.getText());
+        produto.setNome_produto(jtfNome.getText());
         produto.setCodigo_revista(jtfCodRevista.getText());
         produto.setDescricao(jtfDesc.getText());
         produto.setCiclo_campanha(jtfCiclo.getText());
@@ -504,7 +522,7 @@ public class CadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbCancelarActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void jtfValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfValorActionPerformed
@@ -514,13 +532,13 @@ public class CadastroProduto extends javax.swing.JFrame {
     private void jcbTodosProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTodosProdutosActionPerformed
         jtProdutosCadastrados.setModel(prodDAO.pesquisarTodos());
         if(!jcbTodosProdutos.isSelected()){
-            jtProdutosCadastrados.setModel(new DefaultTableModel());
+            ((DefaultTableModel)jtProdutosCadastrados.getModel()).setRowCount(0);
         }    
     }//GEN-LAST:event_jcbTodosProdutosActionPerformed
 
     private void jbPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarProdutoActionPerformed
         Produto produto = prodDAO.pesquisarProduto(jtfBarraPesquisarProd.getText());
-        Object dados[] = {produto.getId_produto(),produto.getNome(),produto.getCodigo_revista(),produto.getFornecedor(),produto.getValor(),produto.getDescricao()};
+        Object dados[] = {produto.getId_produto(),produto.getNome_produto(),produto.getCodigo_revista(),produto.getFornecedor(),produto.getValor(),produto.getDescricao()};
         DefaultTableModel tabela = new DefaultTableModel();
         tabela.setColumnIdentifiers(new String[]{"ID","Nome","Cod. Revista","Fornecedor","Valor","Descrição"});
         tabela.addRow(dados);
@@ -528,16 +546,17 @@ public class CadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbPesquisarProdutoActionPerformed
 
     private void jtProdutosCadastradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProdutosCadastradosMouseClicked
-        String pesquisa = ""+jtProdutosCadastrados.getValueAt(jtProdutosCadastrados.getSelectedRow(), 1);
-        Produto produto = prodDAO.pesquisarProduto(pesquisa);
-        jtfNome.setText(produto.getNome());
+        //String pesquisa = ""+jtProdutosCadastrados.getValueAt(jtProdutosCadastrados.getSelectedRow(), 1);
+        int idProd = (int)jtProdutosCadastrados.getModel().getValueAt(jtProdutosCadastrados.getSelectedRow(), 0);
+        Produto produto = prodDAO.pesquisarProdutoID(idProd);
+        jtfNome.setText(produto.getNome_produto());
         jtfCodRevista.setText(produto.getCodigo_revista());
         jtfCiclo.setText(produto.getCiclo_campanha());
         jtfDesc.setText(produto.getDescricao());
         jtfFornecedor.setText(produto.getFornecedor());
         jtfValor.setText(Double.toString(produto.getValor()));
         jcbUndMed.setSelectedItem(produto.getUnidade_medida());
-        jtfGram.setText(Integer.toString(produto.quantidade_ml));
+        jtfGram.setText(Integer.toString(produto.getQuantidade_ml()));
         jbEditar.setEnabled(true);
         jbCancelar.setEnabled(true);
         jbSalvar.setEnabled(false);

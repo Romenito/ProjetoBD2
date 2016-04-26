@@ -9,8 +9,6 @@ import Banco_Dados.JDBC_Conexao;
 import Modelo.Produto;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,8 +22,8 @@ public class ProdutoDAO {
     public void inserirProduto(Produto dadosProd){
         conectaBD.conexao();
         try {
-            PreparedStatement consultaBD = conectaBD.conn.prepareStatement("INSERT INTO produto(nome,codigo_revista,descricao,valor,unid_medida,quantidade_ml,fornecedor,ciclo_campanha) VALUES(?,?,?,?,?,?,?,?)");
-            consultaBD.setString(1, dadosProd.getNome());
+            PreparedStatement consultaBD = conectaBD.conn.prepareStatement("INSERT INTO produto(nome_produto,codigo_revista,descricao,valor,unid_medida,quantidade_ml,fornecedor,ciclo_campanha) VALUES(?,?,?,?,?,?,?,?)");
+            consultaBD.setString(1, dadosProd.getNome_produto());
             consultaBD.setString(2, dadosProd.getCodigo_revista());
             consultaBD.setString(3,dadosProd.getDescricao());
             consultaBD.setDouble(4,dadosProd.getValor());
@@ -37,8 +35,7 @@ public class ProdutoDAO {
             conectaBD.desconexao();
             JOptionPane.showMessageDialog(null,"Produto cadastrado com sucesso!");
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null,"Erro ao Cadastrar produto! \ncod. Erro: "+ex.toString());
+            JOptionPane.showMessageDialog(null,"Erro ao Cadastrar produto!");
         }
     }
     
@@ -51,8 +48,7 @@ public class ProdutoDAO {
             JOptionPane.showMessageDialog(null,"Produto excluído com sucesso!");
             conectaBD.desconexao();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null,"Erro ao Excluir produto! \ncod. Erro: "+ex.toString());
+            JOptionPane.showMessageDialog(null,"Erro ao Excluir!\nProduto vinculado em Venda.");
         }
     }
     
@@ -60,9 +56,9 @@ public class ProdutoDAO {
         conectaBD.conexao();
         
         try {
-            PreparedStatement consultaBD = conectaBD.conn.prepareStatement("UPDATE produto SET nome=?,codigo_revista=?,descricao=?,valor=?,"
+            PreparedStatement consultaBD = conectaBD.conn.prepareStatement("UPDATE produto SET nome_produto=?,codigo_revista=?,descricao=?,valor=?,"
                     + "unid_medida=?,quantidade_ml=?,fornecedor=?,ciclo_campanha=? WHERE id_produto=?");
-            consultaBD.setString(1, produto.getNome());
+            consultaBD.setString(1, produto.getNome_produto());
             consultaBD.setString(2, produto.getCodigo_revista());
             consultaBD.setString(3, produto.getDescricao());
             consultaBD.setDouble(4, produto.getValor());
@@ -76,7 +72,6 @@ public class ProdutoDAO {
             JOptionPane.showMessageDialog(null,"Produto Editado com sucesso!");
             
         } catch (SQLException ex) {
-            //Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null,"Erro ao Editar produto! \ncod. Erro: "+ex.toString());
         }
         
@@ -87,7 +82,7 @@ public class ProdutoDAO {
         conectaBD.executaSQL("SELECT * FROM produto WHERE id_produto = "+id);
         try {
             conectaBD.rs.first();
-            produto.setNome(conectaBD.rs.getString("nome"));
+            produto.setNome_produto(conectaBD.rs.getString("nome_produto"));
             produto.setId_produto(conectaBD.rs.getInt("id_produto"));
             produto.setDescricao(conectaBD.rs.getString("descricao"));
             produto.setCodigo_revista(conectaBD.rs.getString("codigo_revista"));
@@ -96,10 +91,9 @@ public class ProdutoDAO {
             produto.setUnidade_medida(conectaBD.rs.getString("unid_medida"));
             produto.setCiclo_campanha(conectaBD.rs.getString("ciclo_campanha"));
             produto.setValor(conectaBD.rs.getDouble("valor"));
-            
+            conectaBD.desconexao();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Falha ao pesquisar Produto por ID!");
-            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return produto;
@@ -109,10 +103,10 @@ public class ProdutoDAO {
         Boolean sucesso = false;
         conectaBD.conexao();
         try {
-            conectaBD.executaSQL("SELECT * FROM produto WHERE nome LIKE '%"+nome+"%'");
+            conectaBD.executaSQL("SELECT * FROM produto WHERE nome_produto LIKE '%"+nome+"%'");
             conectaBD.rs.first();
             do {
-                prodPesq.setNome(conectaBD.rs.getString("nome"));
+                prodPesq.setNome_produto(conectaBD.rs.getString("nome_produto"));
                 prodPesq.setId_produto(conectaBD.rs.getInt("id_produto"));
                 prodPesq.setDescricao(conectaBD.rs.getString("descricao"));
                 prodPesq.setCodigo_revista(conectaBD.rs.getString("codigo_revista"));
@@ -123,6 +117,7 @@ public class ProdutoDAO {
                 prodPesq.setValor(conectaBD.rs.getDouble("valor"));
             } while(conectaBD.rs.next());
             sucesso = true;
+            conectaBD.desconexao();
         } catch (SQLException ex) {
             //Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null,"Nome do produto não encontrado.");
@@ -142,9 +137,10 @@ public class ProdutoDAO {
             conectaBD.executaSQL("SELECT * FROM produto");
             conectaBD.rs.first();
             do{
-                Object dados[] = {conectaBD.rs.getInt("id_produto"),conectaBD.rs.getString("nome"),conectaBD.rs.getString("codigo_revista"),conectaBD.rs.getString("fornecedor"),conectaBD.rs.getDouble("valor"),conectaBD.rs.getString("descricao")};
+                Object dados[] = {conectaBD.rs.getInt("id_produto"),conectaBD.rs.getString("nome_produto"),conectaBD.rs.getString("codigo_revista"),conectaBD.rs.getString("fornecedor"),conectaBD.rs.getDouble("valor"),conectaBD.rs.getString("descricao")};
                 tabela.addRow(dados);
-            } while(conectaBD.rs.next()) ;
+            } while(conectaBD.rs.next());
+            conectaBD.desconexao();
         } catch (SQLException ex) {
             //Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null,"Não há produtos cadastrados!");
